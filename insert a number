@@ -1,0 +1,24 @@
+def insert_num(lst,index,number):
+    lst.insert(index,number)
+    return lst
+lst=[]
+n=int(input("enter no of elements in list:"))
+for i in range(n):
+    b=int(input("enter element {}:".format(i+1)))
+    lst.append(b)
+number=int(input("enter element to insert:"))
+case=int(input("enter ur choice:"))
+if case==1:
+    index=0
+    result=insert_num(lst,index,number)
+    print(result)
+elif case==2:
+    index=n
+    result=insert_num(lst,index,number)
+    print(result)
+elif case==3:
+    index=n//2
+    result=insert_num(lst,index,number)
+    print(result)
+else:
+    print("out of boumds")
