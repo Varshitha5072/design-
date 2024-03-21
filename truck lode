@@ -1,0 +1,19 @@
+def container_loader(container_sizes, truck_capacity):
+    container_sizes.sort(reverse=True)  
+    truck_loads = []
+
+    for container in container_sizes:
+        for load in truck_loads:
+            if sum(load) + container <= truck_capacity:
+                load.append(container)
+                break
+        else:
+            truck_loads.append([container])  # Create a new load if no existing load can accommodate the container
+
+    return truck_loads
+sizes = [60,90,20,40,30,80,120,50,10,100]
+capacity = int(input("enter capacity:"))
+loads = container_loader(sizes, capacity)
+print("Truck Loads:")
+for i, load in enumerate(loads):
+    print(f"Load {i+1}: {load}")
