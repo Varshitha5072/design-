@@ -1,0 +1,17 @@
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+array = []
+n = int(input("Enter the number of elements in the array: "))
+print("Enter the elements of the array, separated by space:")
+elements = input().split()
+for i in range(n):
+    array.append(int(elements[i]))
+print("Original array:", array)
+selection_sort(array)
+print("Array after Selection sort:", array)
