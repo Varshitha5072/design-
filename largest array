@@ -1,0 +1,13 @@
+def find_largest(arr):
+    largest = arr[0]
+    for num in arr:
+        if num > largest:
+            largest = num
+    return largest
+array = []
+size = int(input("Enter the size of the array: "))
+for i in range(size):
+    num = int(input("Enter element {}: ".format(i+1)))
+    array.append(num)
+largest_element = find_largest(array)
+print("The largest element in the array is:", largest_element)
