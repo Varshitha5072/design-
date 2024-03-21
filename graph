@@ -1,0 +1,29 @@
+def valid(path,v,graph,p):
+    if(graph[path[p-1]][v]==0):
+        return False
+    if v in path:
+        return False
+    return True
+def hami(path,graph,p):
+    if(p==len(graph)):
+        if(graph[path[p-1]][path[0]]==1):
+            return True
+        return False
+    for v in range(1,len(graph)):
+        if(valid(path,v,graph,p)):
+            path[p]=v
+            if(hami(path,graph,p+1)):
+                return True
+    return False
+graph=[[0, 1, 0, 1, 0],
+       [1, 0, 1, 1, 1],
+        [0, 1, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [0, 1, 1, 1, 0]]
+path=[ 0 for i in range(len(graph))]
+path[0]=0
+n=int(input("enter no of vertices:"))
+if(hami(path,graph,1)):
+   print(path)
+else:
+    print('no solution')
