@@ -1,0 +1,9 @@
+def get_factors(n, i=1, factors=[]):
+    if i > n:
+        return factors
+    if n % i == 0:
+        factors.append(i)
+    return get_factors(n, i + 1, factors)
+n = int(input("Enter a number: "))
+factors = get_factors(n)
+print(f"The factors of ",n,"are:",factors)
