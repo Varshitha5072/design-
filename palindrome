@@ -1,0 +1,26 @@
+def is_palindrome(string):
+    if len(string)<=1:
+        return True
+    elif string[0]!=string[-1]:
+        return False
+    else:
+        return is_palindrome(string[1:-1])
+def reverse(n,r):
+    if n==0:
+        return r
+    else:
+        return reverse(n//10,r*10+n%10)
+case=int(input("entrer ur choice:"))
+if case==2:
+    n=int(input("enter a number:"))
+    reverse_num=reverse(n,0)
+    if n==reverse_num:
+        print("Palindrome")
+    else:
+        print("Not a palindrome")
+elif case==1:
+    s=input("Enter a string:")
+    if is_palindrome(s):
+        print(s,"is palindrome")
+    else:
+        print(s,"is not a palindrome")
