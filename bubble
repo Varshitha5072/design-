@@ -1,0 +1,15 @@
+def bubble(l):
+    temp=0
+    for i in range (n-1):
+        for j in range(0,n-i-1):
+            if(l[j]>l[j+1]):
+                temp=l[j]
+                l[j]=l[j+1]
+                l[j+1]=temp
+    return l
+n=int(input("enter the size of array:"))
+list=[]
+for i in range(0,n):
+    b=int(input("enter element:"))
+    list.append(b)
+print(bubble(list))
