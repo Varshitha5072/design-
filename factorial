@@ -1,0 +1,26 @@
+from math import factorial
+row=int(input("enter the no of rows:"))
+for i in range(row):
+    for j in range(row-i+1):
+        print(end=' ')
+    for j in range(i+1):
+        print(factorial(i)//(factorial(j)*factorial(i-j)),end=' ')
+
+    print()
+def bin(n,k):
+    if k>n:
+        return 0
+    if k==1 or k==n:
+        return 1
+    
+    c=[[0 for i in range(k+1)]for j in range(n+1)]
+    for i in range(n+1):
+            for j in range(k+1):
+                if(j==0):
+                 c[i][j]=1
+                else:
+                    c[i][j]=c[i-1][j-1]+c[i-1][j]
+    return c[n][k]
+n=int(input("enter the n value:")) 
+k=int(input("enter the K value:"))
+print(bin(n,k))
