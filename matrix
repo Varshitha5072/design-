@@ -1,0 +1,28 @@
+r=int(input("enter the no of rows:"))
+c=int(input("enter the no of coluomns:"))
+x=[[0 for i in range(r)]for j in range(c)]
+a = []
+print("Enter the elements of Matrix A:")
+for i in range(r):
+    row = list(map(int, input().split()))
+    a.append(row)
+
+b = []
+print("Enter the elements of Matrix B:")
+for i in range(r):
+    row = list(map(int, input().split()))
+    b.append(row)
+x = [[0 for i in range(r)] for j in range(c)]
+m1=(a[0][0]+a[1][1])*(b[0][0]+b[1][1])
+m2=(a[1][0]+a[1][1])*b[0][0]
+m3=a[0][0]*(b[0][1]-b[1][1])
+m4=a[1][1]*(b[1][0]-b[0][0])
+m5=(a[0][0]+a[0][1])*b[1][1]
+m6=(a[1][0]-a[1][1])*b[0][0]+b[0][1]
+m7=(a[0][1]-a[1][1])*(b[1][0]+b[1][1])
+x[0][0]=m1+m4-m5+m7
+x[0][1]=m3+m5
+x[1][0]=m2+m4
+x[1][1]=m1+m3-m2+m6
+for i in x:
+    print(i)
