@@ -1,0 +1,30 @@
+from sys import maxsize
+from itertools import permutations
+v=int(input("enter the size:"))
+def tsp(graph,start):
+    vertex=[]
+    for i in range(v):
+        if i != s:
+            vertex.append(i)
+    minpath=maxsize
+    nextpermutations=permutations(vertex)
+    for i in nextpermutations:
+        cost=0
+        k=s
+        for j in i:
+            cost=cost+graph[k][j]
+            k=j
+        cost=cost+graph[k][s]
+        minpath=min(minpath,cost)
+    return minpath
+graph=[]
+print("enter the graph........")
+for  i in range(v):
+    c=[]
+    for j in range(v):
+        b=int(input())
+        c.append(b)
+    graph.append(c)
+
+s=0
+print("the minimum path is :",tsp(graph,s))
