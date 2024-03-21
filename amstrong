@@ -1,0 +1,11 @@
+def is_amstrong(number,i):
+    if number==0:
+        return 0
+    else:
+        return (number%10)**i+is_amstrong(number//10,i)
+num=int(input("enter a number:"))
+i=len(str(num))
+if num==is_amstrong(num,i):
+    print(num,"is amstrong")
+else:
+    print(num,"is not amstrong")
