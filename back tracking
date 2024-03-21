@@ -1,0 +1,23 @@
+def subset_sum(nums, target):
+    result = []
+    def backtrack(start, path, curr_sum):
+        if curr_sum == target:
+            result.append(path[:])
+            return
+        for i in range(start, len(nums)):
+            if curr_sum + nums[i] <= target:
+                path.append(nums[i])
+                backtrack(i + 1, path, curr_sum + nums[i])
+                path.pop()
+    backtrack(0, [], 0)
+    return result
+nums = []
+n=int(input("enter no of elements:"))
+for i in range(n):
+    b=int(input("enter element {}:".format(i+1)))
+    nums.append(b)
+target = int(input("enter target:"))
+result = subset_sum(nums, target)
+print("Subsets with sum equal to", target, ":")
+for subset in result:
+    print(subset)
